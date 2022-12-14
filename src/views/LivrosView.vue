@@ -36,13 +36,17 @@ export default {
         this.novo_isbn = "";
       }
     },
+    excluir(livro) {
+      const indice = this.livros.indexOf(livro);
+      this.livros.splice(indice, 1);
+    },
   },
 };
 </script>
 <template>
   <main id="main">
     <div class="cadastro">
-      <h1 style="font-size: 3rem">Página de livros</h1>
+      <h1 style="font-size: 3rem">Livros</h1>
       <hr class="cadastro-title-hr" />
       <div class="cadastro-inputs">
         <h1 style="font-size: 2rem; margin-bottom: 5px">Inserir os dados</h1>
@@ -82,7 +86,7 @@ export default {
           class="cadastro-input"
           type="text"
         />
-      <button @click="salvar" class="cadastro-button">Confirmar</button>
+        <button @click="salvar" class="cadastro-button">Confirmar</button>
       </div>
     </div>
     <div class="listagem">
@@ -99,6 +103,7 @@ export default {
             <th>Quantidade</th>
             <th>Preço</th>
             <th>ISBN</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -110,6 +115,7 @@ export default {
             <td>{{ livro.quantidade }}</td>
             <td>{{ livro.preco }}</td>
             <td>{{ livro.isbn }}</td>
+            <button @click="excluir(livro)">Excluir</button>
           </tr>
         </tbody>
       </table>
@@ -148,7 +154,8 @@ export default {
   flex-wrap: wrap;
   gap: 5px;
 
-  background-color: rgb(175, 29, 29);
+  background-color: #c1a287;
+  border: 2px solid black;
   border-radius: 30px;
 }
 .cadastro-input {

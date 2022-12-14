@@ -1,6 +1,5 @@
 <script setup>
 import PageHeader from "./components/PageHeader.vue";
-import PageFooter from "./components/PageFooter.vue";
 </script>
 <template>
   <PageHeader></PageHeader>
@@ -23,7 +22,8 @@ a {
   width: 100%;
 
   display: grid;
-  grid-template-rows: 10vh 1fr 10vh;
+  grid-template-rows: 10vh 1fr;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 table {
   color: white;

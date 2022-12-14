@@ -21,13 +21,17 @@ export default {
         this.novo_nome = "";
       }
     },
+    excluir(autor) {
+      const indice = this.autores.indexOf(autor);
+      this.autores.splice(indice, 1);
+    },
   },
 };
 </script>
 <template>
   <main id="main">
     <div class="cadastro">
-      <h1 style="font-size: 3rem">Página de autores</h1>
+      <h1 style="font-size: 3rem">Autores</h1>
       <hr class="cadastro-title-hr" />
       <div class="cadastro-inputs">
         <h1 style="font-size: 2rem; margin-bottom: 5px">Inserir os dados</h1>
@@ -37,7 +41,7 @@ export default {
           class="cadastro-input"
           type="text"
         />
-      <button @click="salvar" class="cadastro-button">Confirmar</button>
+        <button @click="salvar" class="cadastro-button">Confirmar</button>
       </div>
     </div>
     <div class="listagem">
@@ -49,12 +53,14 @@ export default {
           <tr>
             <th>ID</th>
             <th>Nome</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="autor in autores" :key="autor.id">
             <td>{{ autor.id }}</td>
             <td>{{ autor.nome }}</td>
+            <button @click="excluir(autor)">Excluir</button>
           </tr>
         </tbody>
       </table>
@@ -93,7 +99,8 @@ export default {
   flex-wrap: wrap;
   gap: 5px;
 
-  background-color: rgb(175, 29, 29);
+  background-color: #c1a287;
+  border: 2px solid black;
   border-radius: 30px;
 }
 .cadastro-input {

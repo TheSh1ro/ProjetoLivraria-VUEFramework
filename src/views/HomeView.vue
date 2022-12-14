@@ -2,16 +2,14 @@
 <template>
   <main id="main">
     <div class="cadastro">
-      <h1 style="font-size: 3rem; color: black">Página Home</h1>
+      <h1 style="font-size: 3rem; color: black">Livraria Website</h1>
       <hr class="cadastro-title-hr" />
-      <h1 style="font-size: 2rem; color: black; margin-bottom: 5px">
-        Visualizar
-      </h1>
+      <!-- <h1 style="font-size: 2rem; color: black; margin-bottom: 5px">Visualizar</h1> -->
       <div class="cadastro-options">
-        <span class="cadastro-option">Editoras</span>
-        <span class="cadastro-option">Categorias</span>
-        <span class="cadastro-option">Autores</span>
-        <span class="cadastro-option">Livros</span>
+        <!-- <span class="cadastro-option">Editoras</span> -->
+        <!-- <span class="cadastro-option">Categorias</span> -->
+        <!-- <span class="cadastro-option">Autores</span> -->
+        <RouterLink to="livros" class="cadastro-option">Navegar</RouterLink>
       </div>
     </div>
   </main>
@@ -41,8 +39,9 @@
   display: flex;
   flex-direction: row;
 
-  border: 3px groove black;
   font-size: 2rem;
+  color: rgb(0, 182, 237);
+  font-weight: bolder;
 }
 .cadastro-option {
   padding: 1vh;

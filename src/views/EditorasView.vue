@@ -24,13 +24,17 @@ export default {
         this.novo_site = "";
       }
     },
+    excluir(editora) {
+      const indice = this.editoras.indexOf(editora);
+      this.editoras.splice(indice, 1);
+    },
   },
 };
 </script>
 <template>
   <main id="main">
     <div class="cadastro">
-      <h1 style="font-size: 3rem">Página de editoras</h1>
+      <h1 style="font-size: 3rem">Editoras</h1>
       <hr class="cadastro-title-hr" />
       <div class="cadastro-inputs">
         <h1 style="font-size: 2rem; margin-bottom: 5px">Inserir os dados</h1>
@@ -46,7 +50,7 @@ export default {
           class="cadastro-input"
           type="text"
         />
-      <button @click="salvar" class="cadastro-button">Confirmar</button>
+        <button @click="salvar" class="cadastro-button">Confirmar</button>
       </div>
     </div>
     <div class="listagem">
@@ -59,6 +63,7 @@ export default {
             <th>ID</th>
             <th>Nome</th>
             <th>Site (Link)</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -66,6 +71,9 @@ export default {
             <td>{{ editora.id }}</td>
             <td>{{ editora.nome }}</td>
             <td>{{ editora.site }}</td>
+            <td>
+              <button @click="excluir(editora)">Excluir</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -104,7 +112,8 @@ export default {
   flex-wrap: wrap;
   gap: 5px;
 
-  background-color: rgb(175, 29, 29);
+  background-color: #c1a287;
+  border: 2px solid black;
   border-radius: 30px;
 }
 .cadastro-input {
